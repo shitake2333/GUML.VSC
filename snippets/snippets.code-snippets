@@ -1,0 +1,72 @@
+{
+    "Component": {
+        "prefix": "comp",
+        "body": [
+            "${1:Control} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "GUML component declaration"
+    },
+    "Property": {
+        "prefix": "prop",
+        "body": [
+            "${1:property_name}: ${2:value}"
+        ],
+        "description": "GUML property assignment"
+    },
+    "Mapping (data → UI)": {
+        "prefix": "map",
+        "body": [
+            "${1:property_name} := ${2:\\$controller.${3:value}}"
+        ],
+        "description": "GUML data-to-UI mapping"
+    },
+    "Parameter declaration": {
+        "prefix": "param",
+        "body": [
+            "param ${1:string} ${2:name}"
+        ],
+        "description": "GUML parameter declaration"
+    },
+    "Event declaration": {
+        "prefix": "event",
+        "body": [
+            "event ${1:on_action}"
+        ],
+        "description": "GUML event declaration"
+    },
+    "Event subscription": {
+        "prefix": "on",
+        "body": [
+            "#${1:pressed}: ${2:\\$controller.${3:handler}}"
+        ],
+        "description": "GUML event subscription"
+    },
+    "Each block": {
+        "prefix": "each",
+        "body": [
+            "each ${1:\\$controller.${2:items}} {",
+            "\t|${3:idx}, ${4:item}|",
+            "\t${5:Control} {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "GUML each iteration block"
+    },
+    "Import": {
+        "prefix": "import",
+        "body": [
+            "import \"${1:path}.guml\""
+        ],
+        "description": "GUML import directive"
+    },
+    "Import with alias": {
+        "prefix": "importas",
+        "body": [
+            "import \"${1:path}.guml\" as ${2:Alias}"
+        ],
+        "description": "GUML import directive with alias"
+    }
+}

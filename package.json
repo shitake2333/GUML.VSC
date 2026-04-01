@@ -1,0 +1,166 @@
+{
+    "name": "guml",
+    "displayName": "GUML",
+    "description": "Language support for GUML — a declarative UI markup language for Godot .NET",
+    "version": "0.2.0",
+    "publisher": "shitake233",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shitake2333/GUML"
+    },
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "guml",
+        "godot",
+        "ui",
+        "markup",
+        "declarative"
+    ],
+    "activationEvents": [
+        "workspaceContains:**/*.guml"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "guml",
+                "aliases": [
+                    "GUML",
+                    "guml"
+                ],
+                "extensions": [
+                    ".guml"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "guml",
+                "scopeName": "source.guml",
+                "path": "./syntaxes/guml.tmLanguage.json",
+                "semanticHighlighting": true
+            }
+        ],
+        "semanticTokenScopes": [
+            {
+                "language": "guml",
+                "scopes": {
+                    "keyword": [
+                        "keyword.control.guml"
+                    ],
+                    "class": [
+                        "entity.name.type.class.guml"
+                    ],
+                    "property": [
+                        "variable.other.property.guml"
+                    ],
+                    "parameter": [
+                        "variable.parameter.guml"
+                    ],
+                    "variable": [
+                        "variable.other.readwrite.guml"
+                    ],
+                    "event": [
+                        "entity.name.function.event.guml"
+                    ],
+                    "enumMember": [
+                        "variable.other.enummember.guml"
+                    ],
+                    "string": [
+                        "string.quoted.double.guml"
+                    ],
+                    "number": [
+                        "constant.numeric.guml"
+                    ],
+                    "comment": [
+                        "comment.line.double-slash.guml"
+                    ],
+                    "operator": [
+                        "keyword.operator.guml"
+                    ]
+                }
+            }
+        ],
+        "snippets": [
+            {
+                "language": "guml",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ],
+        "configurationDefaults": {
+            "[guml]": {
+                "editor.semanticHighlighting.enabled": true
+            }
+        },
+        "configuration": {
+            "title": "GUML",
+            "properties": {
+                "guml.analyzerPath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Custom path to the guml-analyzer executable. Leave empty to use the globally installed dotnet tool."
+                },
+                "guml.incrementalParsing": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable incremental parsing for GUML documents. Disable this if you experience incorrect diagnostics after editing."
+                },
+                "guml.trace.server": {
+                    "type": "string",
+                    "default": "off",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "description": "Traces the communication between VS Code and the GUML analyzer server."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "guml.quickActions",
+                "title": "GUML: Quick Actions"
+            },
+            {
+                "command": "guml.rebuildCache",
+                "title": "GUML: Rebuild API Cache"
+            },
+            {
+                "command": "guml.restartServer",
+                "title": "GUML: Restart Analyzer"
+            },
+            {
+                "command": "guml.stopServer",
+                "title": "GUML: Stop Analyzer"
+            },
+            {
+                "command": "guml.showOutput",
+                "title": "GUML: Show Output"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run build",
+        "build": "node esbuild.js --production",
+        "watch": "node esbuild.js --watch",
+        "lint": "eslint src --ext ts"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^9.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "@types/vscode": "^1.85.0",
+        "@vscode/vsce": "^3.7.1",
+        "esbuild": "^0.24.0",
+        "typescript": "^5.5.0"
+    }
+}

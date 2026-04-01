@@ -1,0 +1,22 @@
+# IntelliJ
+.idea/
+
+# Visual studio
+.vs/
+.vscode/
+
+Builds/
+
+# Ignore stub bin and obj folders
+bin/
+obj/
+
+nupkg/
+
+*_plan.md
+.github/*-instructions.md
+
+node_modules/
+dist/
+out/
+*.vsix
