@@ -3,7 +3,7 @@
     "displayName": "GUML",
     "description": "Language support for GUML — a declarative UI markup language for Godot .NET",
     "version": "0.2.0",
-    "publisher": "shitake233",
+    "publisher": "shitake",
     "license": "MIT",
     "repository": {
         "type": "git",
