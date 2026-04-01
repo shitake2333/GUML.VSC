@@ -1,23 +1,25 @@
 # GUML — VS Code Extension
 
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/shitake233.guml)](https://marketplace.visualstudio.com/items?itemName=shitake233.guml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Language support for **GUML** — a declarative UI markup language for Godot .NET.
 
 ## Features
 
-- **Syntax highlighting** — TextMate grammar for `.guml` files plus semantic token coloring
+- **Syntax highlighting** — TextMate grammar + semantic token coloring for `.guml` files
 - **Code completion** — components, properties, events, global references, enum values
 - **Hover information** — type details, property constraints, event signatures
 - **Go to Definition** — navigate to imported files and parameter declarations
 - **Formatting** — full-document and range formatting
 - **Diagnostics** — real-time syntax and semantic error reporting
 - **Document highlight** — highlight all occurrences of a symbol
+- **Snippets** — built-in snippets for common patterns (`comp`, `prop`, `map`, `param`, `each`, `import` …)
 
 ## Requirements
 
-- **.NET 10 SDK** (or later) — required to install and run the analyzer
-- **guml-analyzer** — the GUML language analysis backend (a .NET global tool)
-
-Install the analyzer:
+- [**.NET 10 SDK**](https://dotnet.microsoft.com/download) (or later)
+- **guml-analyzer** — the language analysis backend (a .NET global tool)
 
 ```bash
 dotnet tool install -g guml-analyzer
@@ -28,48 +30,19 @@ dotnet tool install -g guml-analyzer
 | Setting | Default | Description |
 |---------|---------|-------------|
 | `guml.analyzerPath` | `""` | Custom path to the `guml-analyzer` executable. Leave empty to use the globally installed tool. |
+| `guml.incrementalParsing` | `true` | Enable incremental parsing. Disable if you experience incorrect diagnostics after editing. |
 | `guml.trace.server` | `"off"` | Traces communication between VS Code and the analyzer (`off` / `messages` / `verbose`). |
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
+| `GUML: Quick Actions` | Open quick-pick menu for common analyzer actions |
+| `GUML: Rebuild API Cache` | Re-scan C# project and rebuild type information |
 | `GUML: Restart Analyzer` | Restart the guml-analyzer backend |
+| `GUML: Stop Analyzer` | Stop the running analyzer process |
 | `GUML: Show Output` | Show the GUML Analyzer output channel |
 
-## Known Issues
+## License
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[MIT](LICENSE)
